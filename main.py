@@ -1,2 +1,8 @@
-print("hello world !")
-print("jason")
+l = 'ezd'
+l.pop()
+print(l)
+
+
+
+
+
