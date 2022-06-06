@@ -46,8 +46,6 @@ def creer_jeu_domino():
                 
                 
 
-    
-
 if __name__ == '__main__':
     d = creer_jeu_domino()
 
