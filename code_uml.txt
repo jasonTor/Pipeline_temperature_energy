@@ -1,0 +1,136 @@
+@startuml
+!theme superhero-outline
+
+
+package donnee{
+
+abstract class Donnee
+
+
+class Csv{
++folder : str
++filename : filename
+
+__init__(folder : str, filename : str)
++importer() : list[list[str]]
++copy_data() : list[list[str]]
++importer_non_compress() : list[list[str]]
++matrice() : list[list[str]]
+}
+ 
+
+
+
+class Json{
++folder : str
++filename : filename
+
+__init__(folder : str, filename : str)
++importer() : list[dict[str]]
++get_fields() : list[dict[str]]
++get_nom_des_variables() : list[str]
++matrice() : list[list[str]]
+}
+
+}
+
+Package manipulation_des_donnees {
+abstract class Manipulation
+
+class ManipCSV{
++data : list[list[str]]
+
+__init__(data : list[list[str]])+
+
++list_variable() : list[str]
++get_indice_var(var : str) : int
++list_station() : list[str]
+}
+
+
+
+
+class ManipJSON{
++data : list[list[str]]
+
+__init__(data : list[list[str]]
++list_variable() : list[str]
++get_indice_var(var : str) : int
++list_region() : list[str]
++get_col_region(region : str, var : str) : list[str]
++consommation_moyenne_par_region(region : str) : float
++get_matrice_consommation_moyenne_par_region() : list[list[str]]
+}
+
+
+
+
+class ManipPostesSynop{
++data : list[list[str]]
+
+__init__(data : list[list[str]]
++list_region() : list[str]
++get_col_region(region : str, var : str) : list[str]
++moyenne_temperature_region(region : str) : float
++get_matrice_moyenne_temperature_par_region(): list[str[str]]
+}
+
+
+
+
+class ManipDonneeMeteo {
++data : list[list[str]]
+
+__init__(data : list[list[str]]
++get_col_station(region : str, var : str) : list[str]
++moyenne_temperature_station(station : str): float
++jointure_postesSynop(data_postesSynop : list[list[str]]) : list[list[str]]
+}
+
+}
+
+class Regression {
++data : list[list[str]]
+
+__init__(data : list[list[str]])
++list_variable() : list[str]
++get_indice_var(var : str) : int
+-__convert_to_int(var1 : str, var2 : str) : list[list[float]]
+-__get_col_var1_et_var2(var1 : str, var2 : str) : list[list[float]]
++regress(var1 : str, var2 : str)
+}
+
+
+
+
+class Pipeline{
++data_csv : str
++data_json : str
+
+__init__(data_csv : str, data_json : str)
++lien_temperature_consommation()
+}
+
+
+
+
+class Jointure {
++data1 : str
++data2 : str
+
+__init__(data1 : str, data2 : str)
++liste_variable_data1() : list[str]
++liste_variable_data2() : list[str]
++get_indice_var_data1(var : str) : int
++get_indice_var_data2(var : str) : int
++inner_join(var : str) : list[liqt[str]]
+}
+
+
+Donnee <|-- Csv 
+Donnee <|-- Json 
+Manipulation <|-- ManipCSV
+Manipulation <|-- ManipJSON
+ManipCSV <|-- ManipPostesSynop
+ManipCSV <|-- ManipDonneeMeteo
+@enduml

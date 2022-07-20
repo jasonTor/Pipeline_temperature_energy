@@ -1,5 +1,5 @@
 import sys
-sys.path.append('d:\\Users\\Jason\\Desktop\\entrainement\\projet_info')
+sys.path.append('C:\\Users\\jason\\OneDrive\\Bureau\\entrainement\\projet_info')
 
 from donnee import Donnee
 import gzip

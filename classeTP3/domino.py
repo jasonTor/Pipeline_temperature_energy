@@ -43,8 +43,7 @@ def creer_jeu_domino():
         for j in range(7):
             d.ajoute_domino(Domino(i,j))
     return d
-                
-                
+                                
 
 if __name__ == '__main__':
     d = creer_jeu_domino()

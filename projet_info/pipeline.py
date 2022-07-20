@@ -16,14 +16,14 @@ class Pipeline:
     def lien_temperature_consommation(self):
         '''Execute le pipeline associé à la regression linéaire faisant ainsi le lien entre température et consommation
         '''
-        datajs = Json("D:\\Users\\Jason\\Desktop\\entrainement\\données_électricité\\",self.data_json)
+        datajs = Json("C:\\Users\\jason\\OneDrive\\Bureau\\entrainement\\données_électricité\\",self.data_json)
         data_2013_01 = datajs.matrice() # La table (liste de liste) des données de consommation d'energie (json.gz)
 
-        datacsv = Csv("D:\\Users\\Jason\\Desktop\\entrainement\\données_météo\\",self.data_csv)
+        datacsv = Csv("C:\\Users\\jason\\OneDrive\\Bureau\\entrainement\\données_météo\\",self.data_csv)
         data_201301 = datacsv.importer() # La table (liste de liste) des données météos (csv.gz)
         copy_data_201301 = datacsv.copy_data() # Copie de la table data_201301
 
-        postesSynopAvecRegions = Csv("D:\\Users\\Jason\\Desktop\\entrainement\\","postesSynopAvecRegions.csv")
+        postesSynopAvecRegions = Csv("C:\\Users\\jason\\OneDrive\\Bureau\\entrainement\\","postesSynopAvecRegions.csv")
         data_postesSynop = postesSynopAvecRegions.matrice() # La table (liste de liste) des données postesSynopAvecRegion
 
         manip_data_201301 = ManipDonneeMeteo(copy_data_201301) #On lui donne copy_data_201301 pour que data_201301 ne soit pas modifier dans l'appel des différentes méthodes après
